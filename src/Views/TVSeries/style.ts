@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const PageBody = styled.body`
+export const PageBody = styled.div`
   .body-container {
     background: rgb(139, 139, 134);
     background: radial-gradient(

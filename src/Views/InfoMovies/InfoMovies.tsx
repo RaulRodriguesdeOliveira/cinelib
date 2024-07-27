@@ -69,7 +69,7 @@ const InfoMovies = () => {
                   <img
                     src={`https://image.tmdb.org/t/p/w500/${production.logo_path}`}
                     className="production-logo"
-                    alt=""
+                    alt="production-logo"
                   />
                   <p>{production.name}</p>
                 </div>

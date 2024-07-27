@@ -7,6 +7,8 @@ import InfoMovies from "./Views/InfoMovies/InfoMovies";
 import axios from "axios";
 import { setLanguagesData } from "./store/modules/Global/action";
 import { useEffect } from "react";
+import TVSeries from "./Views/TVSeries/TVSeries";
+import InfoTVSeries from "./Views/InfoTVSeries/InfoTVSeries";
 
 function App() {
 
@@ -29,6 +31,8 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/movies/:id" element={<InfoMovies />} />
+          <Route path="/tvseries/:id" element={<InfoTVSeries/>} />
+          <Route path="/tvseries" element={<TVSeries/>} />
           <Route path="/" element={<Movies />} />
         </Routes>
       </BrowserRouter>

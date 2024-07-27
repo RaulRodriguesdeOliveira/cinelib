@@ -16,7 +16,7 @@ export const NavContainer = styled.div`
   @media (max-width: 520px) {
     flex-direction: column;
     align-items: center;
-    height: 12rem;
+    height: 18rem;
   }
 
   .cinelib-logo {
@@ -25,6 +25,34 @@ export const NavContainer = styled.div`
 
     @media (max-width: 520px) {
       margin: 1rem 0 0 0;
+    }
+  }
+
+  .catalog {
+    display: flex;
+    flex-direction: row;
+    gap: 3rem;
+    color: white;
+    width: 100%;
+    justify-content: flex-end;
+    margin-right: 3rem;
+    
+  @media (max-width: 520px) {
+    margin: 0;
+    gap: 1.5rem;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  }
+
+  .movies, .tvseries {
+    color: white;
+    font-size: 1.2rem;
+    transition: 0.4s;
+
+    &:hover {
+      color: #f0f062;
     }
   }
 

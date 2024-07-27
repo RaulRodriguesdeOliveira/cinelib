@@ -12,19 +12,35 @@ const Navbar = () => {
     (state) => state.global
   );
 
-  const handleLanguageChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    const selectedLanguage = event.target.value
-    setSelectLangData(selectedLanguage)
-  }
+  const handleLanguageChange = (
+    event: React.ChangeEvent<HTMLSelectElement>
+  ) => {
+    const selectedLanguage = event.target.value;
+    setSelectLangData(selectedLanguage);
+  };
 
-  const languageOptions = languages.map((language) => <option key={language} value={language}>{language}</option>);
+  const languageOptions = languages.map((language) => (
+    <option key={language} value={language}>
+      {language}
+    </option>
+  ));
 
   return (
     <NavContainer>
       <Link to="/">
         <img className="cinelib-logo" src={cineLibLogo} alt="" />
       </Link>
-      <select className="languages" onChange={handleLanguageChange} value={selectLang}>{languageOptions}</select>
+      <div className="catalog">
+        <Link to="/" className="movies">Movies</Link>
+        <Link to="/tvseries" className="tvseries">TV Series</Link>
+      </div>
+      <select
+        className="languages"
+        onChange={handleLanguageChange}
+        value={selectLang}
+      >
+        {languageOptions}
+      </select>
     </NavContainer>
   );
 };
