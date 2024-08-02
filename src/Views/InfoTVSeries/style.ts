@@ -158,7 +158,7 @@ export const Info = styled.div`
       margin-top: 1rem;
       text-decoration: none;
       margin-bottom: 5rem;
-      transition: 0.5s;
+      transition: 0.3s;
 
       &:hover {
         color: #f0f062;

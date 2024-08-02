@@ -1,5 +1,6 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import axios from "axios";
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { useParams } from "react-router";
 import { setDetailsMovie } from "../../store/modules/InfoMovies/action";
 import { useSelector } from "react-redux";
@@ -31,7 +32,7 @@ const InfoMovies = () => {
         setDetailsMovie(response.data);
       });
   }, [selectLang]);
-  console.log(detailsMovie);
+  // console.log(detailsMovie);
 
   return (
     <div>
@@ -69,7 +70,7 @@ const InfoMovies = () => {
                   <img
                     src={`https://image.tmdb.org/t/p/w500/${production.logo_path}`}
                     className="production-logo"
-                    alt="production-logo"
+                    alt=""
                   />
                   <p>{production.name}</p>
                 </div>

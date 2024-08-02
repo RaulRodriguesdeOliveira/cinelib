@@ -1,4 +1,3 @@
-import React from "react";
 import cineLibLogo from "../../assets/Logos/cinelib-logo-white.png";
 import { Link } from "react-router-dom";
 import { NavContainer } from "./style";
@@ -31,8 +30,12 @@ const Navbar = () => {
         <img className="cinelib-logo" src={cineLibLogo} alt="" />
       </Link>
       <div className="catalog">
-        <Link to="/" className="movies">Movies</Link>
-        <Link to="/tvseries" className="tvseries">TV Series</Link>
+        <Link to="/" className="movies">
+          Movies
+        </Link>
+        <Link to="/tvseries" className="tvseries">
+          TV Series
+        </Link>
       </div>
       <select
         className="languages"

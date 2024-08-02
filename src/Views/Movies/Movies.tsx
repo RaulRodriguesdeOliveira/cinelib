@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import axios from "axios";
 import { useEffect } from "react";
 import { setMoviesData } from "../../store/modules/Movies/action";
@@ -19,9 +20,26 @@ const Movies = () => {
 
   const { selectLang } = useSelector<ApplicationState, GLOBAL>(
     (state) => state.global
-  )
+  );
 
   const [page, setPage] = React.useState(1);
+  const [search, setSearch] = React.useState("");
+
+  // const MoviesTitles: { titles: string[]; id: number[] } = {
+  //   titles: [],
+  //   id: [],
+  // };
+  // movies.map(
+  //   (movie) => (
+  //     MoviesTitles.titles.push(movie.title), MoviesTitles.id.push(movie.id)
+  //   )
+  // );
+
+  // console.log(MoviesTitles);
+
+  // const titlesFiltered = MoviesTitles.titles.filter((title) =>
+  //   title.toLowerCase().includes(search.toLowerCase())
+  // );
 
   function handlePage(event: React.MouseEvent<HTMLButtonElement>) {
     const value = event.currentTarget.value;
@@ -68,14 +86,27 @@ const Movies = () => {
       <PageBody>
         <div className="body-container">
           <div className="container-xxl">
+            <div className="search">
+              <input
+                type="text"
+                className="search-bar"
+                value={search}
+                onChange={(event) => setSearch(event.target.value)}
+                placeholder="Search..."
+              />
+            </div>
             <div className="row d-flex p-5">
-              {moviesState.map((movie) => {
-                return <PosterMovie key={movie.id} props={movie} />;
-              })}
+              {moviesState
+                .filter((movie) =>
+                  movie.title.toLowerCase().includes(search.toLowerCase())
+                )
+                .map((movie) => (
+                  <PosterMovie key={movie.id} props={movie} />
+                ))}
             </div>
           </div>
           <PageControls>
-            <div className="d-flex mb-5 gap-5" >
+            <div className="d-flex mb-5 gap-5">
               <button value="previous" onClick={handlePage}>
                 Anterior
               </button>

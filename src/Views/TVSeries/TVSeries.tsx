@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import axios from "axios";
 import React, { useEffect } from "react";
 import { setTVSeriesData } from "../../store/modules/TVSeries/action";
@@ -20,6 +21,7 @@ const TVSeries = () => {
   );
 
   const [page, setPage] = React.useState(1);
+  const [search, setSearch] = React.useState('')
 
   function handlePage(event: React.MouseEvent<HTMLButtonElement>) {
     const value = event.currentTarget.value;
@@ -31,7 +33,7 @@ const TVSeries = () => {
       setPage(page);
     }
   }
-  
+
   const handleBlur = (event: React.FocusEvent<HTMLInputElement>) => {
     setPage(Number(event.target.value));
     event.target.value = "";
@@ -61,30 +63,43 @@ const TVSeries = () => {
       <Navbar />
       <div className="body-container">
         <div className="container-xxl">
-          <div className="row d-flex p-5">
-            {tvseries.map((serie) => {
-              return <PosterTVSerie key={serie.id} props={serie} />;
-            })}
-          </div>
+            <div className="search">
+              <input
+                type="text"
+                className="search-bar"
+                value={search}
+                onChange={(event) => setSearch(event.target.value)}
+                placeholder="Search..."
+              />
+            </div>
+            <div className="row d-flex p-5">
+              {tvseries
+                .filter((serie) =>
+                  serie.name.toLowerCase().includes(search.toLowerCase())
+                )
+                .map((movie) => (
+                  <PosterTVSerie key={movie.id} props={movie} />
+                ))}
+            </div>
         </div>
         <PageControls>
-        <div className="d-flex mb-5 gap-5">
-          <button value="Previous" onClick={handlePage}>
-            Anterior
-          </button>
-          <span>
-            Page{" "}
-            <input
-              type="number"
-              onBlur={handleBlur}
-              placeholder={page.toString()}
-            />
-            of 500
-          </span>
-          <button value="Next" onClick={handlePage}>
-            Próxima
-          </button>
-        </div>
+          <div className="d-flex mb-5 gap-5">
+            <button value="Previous" onClick={handlePage}>
+              Anterior
+            </button>
+            <span>
+              Page{" "}
+              <input
+                type="number"
+                onBlur={handleBlur}
+                placeholder={page.toString()}
+              />
+              of 500
+            </span>
+            <button value="Next" onClick={handlePage}>
+              Próxima
+            </button>
+          </div>
         </PageControls>
       </div>
       <Footer />

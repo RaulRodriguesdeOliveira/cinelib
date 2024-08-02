@@ -43,7 +43,15 @@ export const NavContainer = styled.div`
     flex-direction: column;
     align-items: center;
   }
+  }
 
+  .search-bar {
+    background-color: white;
+    color: black;
+    padding: 0.4rem 1rem;
+    border-radius: 2rem;
+    border: none;
+    width: 20rem;
   }
 
   .movies, .tvseries {
@@ -60,10 +68,12 @@ export const NavContainer = styled.div`
     background-color: black;
     border: transparent;
     margin-right: 2rem;
+    cursor: pointer;
 
     @media(max-width: 520px) {
         margin-right: 0;    
         margin-bottom: 2rem;
     }
   }
+
 `;

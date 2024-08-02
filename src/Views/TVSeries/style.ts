@@ -11,8 +11,8 @@ export const PageBody = styled.div`
     );
     /* margin-left: 2rem; */
     width: 98.75vw;  
-    padding-left: 5rem;
-    padding-right: 5rem;
+      /* padding-left: 5rem;
+      padding-right: 5rem; */
     margin-top: 7rem;
 
     @media(max-width: 520px) {
@@ -21,6 +21,26 @@ export const PageBody = styled.div`
     }
 
   }
+
+  
+  .search {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 97.8vw;
+    margin: 0;
+  }
+
+  .search-bar {
+    margin-top: 2rem;
+    background-color: white;
+    color: black;
+    padding: 0.4rem 1rem;
+    border-radius: 2rem;
+    border: none;
+    width: 50%;
+  }
+
 `;
 
 export const PageControls = styled.div`

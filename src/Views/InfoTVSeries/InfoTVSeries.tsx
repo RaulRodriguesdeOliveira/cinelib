@@ -74,7 +74,7 @@ const InfoTVSeries = () => {
                 <div key={production.id} className="production">
                   <img
                     src={`https://image.tmdb.org/t/p/w500/${production.logo_path}`}
-                    alt="production-logo"
+                    alt=""
                     className="production-logo"
                   />
                   <p>{production.name}</p>
