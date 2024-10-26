@@ -73,7 +73,7 @@ width: 98.75vw;
   }
 
   .movie-title {
-    margin-top: 28vh;
+    margin-top: 32vh;
     text-align: center;
     justify-content: center;
   }
@@ -140,6 +140,14 @@ width: 98.75vw;
   .production-logo {
     width: 10rem;
     margin-bottom: 1rem;
+  }
+
+  .movie-trailer {
+    margin: 3rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
   }
 
   .homepage {

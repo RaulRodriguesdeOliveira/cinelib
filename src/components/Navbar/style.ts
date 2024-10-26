@@ -29,6 +29,7 @@ export const NavContainer = styled.div`
   }
 
   .catalog {
+    position: relative;
     display: flex;
     flex-direction: row;
     gap: 3rem;
@@ -52,6 +53,35 @@ export const NavContainer = styled.div`
     border-radius: 2rem;
     border: none;
     width: 20rem;
+  }
+
+  .search-list {
+    position: absolute;
+    top: 100%;
+    gap: 10px;
+    display: flex;
+    flex-direction: column;
+    max-height: 12rem;
+    overflow-y: auto;
+    background-color: black;
+    margin-right: 1rem;
+    /* justify-content: space-between; */
+    z-index: 2;
+    gap: 10px;
+    align-items: start;
+  }
+
+  .search-item {
+    display: block;
+    cursor: pointer;
+    
+    border-bottom: 1px solid white;
+    width: 100%;
+  }
+
+  .item-img {
+    width: 3rem;
+    margin: 1rem;
   }
 
   .movies, .tvseries {

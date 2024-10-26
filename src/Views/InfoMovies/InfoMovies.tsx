@@ -1,6 +1,8 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable react-hooks/exhaustive-deps */
 import axios from "axios";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { setDetailsMovie } from "../../store/modules/InfoMovies/action";
 import { useSelector } from "react-redux";
@@ -13,7 +15,7 @@ import Footer from "../../components/Footer/Footer";
 import { GLOBAL } from "../../store/modules/Global/types";
 
 const InfoMovies = () => {
-  const { id } = useParams();
+  const { id } = useParams<{ id: string }>();
 
   const { detailsMovie } = useSelector<ApplicationState, DETAILSMOVIE>(
     (state) => state.detailsMovie
@@ -23,6 +25,8 @@ const InfoMovies = () => {
     (state) => state.global
   );
 
+  const [movieVideoData, setMovieVideoData] = useState<any[]>([]);
+
   useEffect(() => {
     axios
       .get(
@@ -31,8 +35,25 @@ const InfoMovies = () => {
       .then((response) => {
         setDetailsMovie(response.data);
       });
-  }, [selectLang]);
+  }, [selectLang, id]);
   // console.log(detailsMovie);
+
+  useEffect(() => {
+    if (id) {
+      axios
+        .get(
+          `https://api.themoviedb.org/3/movie/${id}/videos?language=${selectLang}&api_key=d24c8fa294078dc6f582d21f50f4a1a6`
+        )
+        .then((response) => {
+          setMovieVideoData(response.data.results);
+        })
+        .catch((error) => {
+          console.error("Erro ao buscar os dados dos vídeos", error);
+        });
+    }
+  }, [id, selectLang]);
+
+  console.log(movieVideoData);
 
   return (
     <div>
@@ -57,11 +78,12 @@ const InfoMovies = () => {
               {detailsMovie.vote_average.toFixed(2)}
             </span>
           </div>
-          {detailsMovie.overview !== "" && 
-          <div className="movie-overview">
-            <h3>Overview</h3>
-            <div className="overview-text">{detailsMovie.overview}</div>
-          </div>}
+          {detailsMovie.overview !== "" && (
+            <div className="movie-overview">
+              <h3>Overview</h3>
+              <div className="overview-text">{detailsMovie.overview}</div>
+            </div>
+          )}
           <div className="production-companies">
             <h3>Production Companies</h3>
             <div className="companies">
@@ -77,6 +99,33 @@ const InfoMovies = () => {
               ))}
             </div>
           </div>
+          <div className="movie-trailer">
+            {movieVideoData.length > 0 &&
+              (movieVideoData.length > 1 ? (
+                <h3>Trailers</h3>
+              ) : (
+                <h3>Trailer</h3>
+              ))}
+
+            {movieVideoData.map((videoData) => {
+              if (videoData.type === "Trailer") {
+                return (
+                  <div key={videoData.id}>
+                    <iframe
+                      width="640"
+                      height="360"
+                      src={`https://www.youtube.com/embed/${videoData.key}`}
+                      title={videoData.name}
+                      frameBorder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                      referrerPolicy="strict-origin-when-cross-origin"
+                      allowFullScreen
+                    ></iframe>
+                  </div>
+                );
+              }
+            })}
+          </div>
           <div>
             {detailsMovie.homepage !== "" && (
               <div className="homepage">
@@ -90,7 +139,7 @@ const InfoMovies = () => {
         </div>
       </Info>
       <Footer />
-      </div>
+    </div>
   );
 };
 

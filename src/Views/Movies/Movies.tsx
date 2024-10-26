@@ -23,7 +23,6 @@ const Movies = () => {
   );
 
   const [page, setPage] = React.useState(1);
-  const [search, setSearch] = React.useState("");
 
   // const MoviesTitles: { titles: string[]; id: number[] } = {
   //   titles: [],
@@ -69,7 +68,7 @@ const Movies = () => {
         for (const key in response.data.results) {
           moviesData.push(response.data.results[key]);
         }
-        console.log(moviesData);
+        // console.log(moviesData);
 
         setMoviesData(moviesData);
         // console.log(response);
@@ -86,20 +85,8 @@ const Movies = () => {
       <PageBody>
         <div className="body-container">
           <div className="container-xxl">
-            <div className="search">
-              <input
-                type="text"
-                className="search-bar"
-                value={search}
-                onChange={(event) => setSearch(event.target.value)}
-                placeholder="Search..."
-              />
-            </div>
             <div className="row d-flex p-5">
               {moviesState
-                .filter((movie) =>
-                  movie.title.toLowerCase().includes(search.toLowerCase())
-                )
                 .map((movie) => (
                   <PosterMovie key={movie.id} props={movie} />
                 ))}

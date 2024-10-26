@@ -76,7 +76,7 @@ export const Info = styled.div`
   }
 
   .tv-title {
-    margin-top: 28vh;
+    margin-top: 32vh;
     text-align: center;
     justify-content: center;
   }
