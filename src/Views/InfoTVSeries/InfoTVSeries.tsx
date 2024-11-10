@@ -38,6 +38,18 @@ const InfoTVSeries = () => {
     getInfoTVSeries();
   }, [id, selectLang]);
 
+  const statusColorMap: {[key: string]: string} = {
+    "Ended": "green",
+    "Returning Series": "#cdab0d",
+    "Canceled": "red"
+  }
+
+  const statusSerieMap: {[key: string]: string} = {
+    "Ended": "Finished",
+    "Returning Series": "In Progress",
+    "Canceled": "Canceled"
+  }
+
   return (
     < >
       <Navbar />
@@ -67,6 +79,22 @@ const InfoTVSeries = () => {
               <div className="overview-text">{detailsTvSeries.overview}</div>
             </div>
           )}
+          <div className="info-series">
+            <div className="seasons">
+              <h3>Seasons</h3>
+              <h3>{detailsTvSeries.number_of_seasons}</h3>
+            </div>
+            <div className="episodes">
+              <h3>Episodes</h3>
+              <h3>{detailsTvSeries.number_of_episodes}</h3>
+            </div>
+            <div className="status">
+              <h3>Status</h3>
+                <span className="status-serie" style={{backgroundColor: statusColorMap[detailsTvSeries.status] || "gray"}}>{statusSerieMap[detailsTvSeries.status]}</span>
+              {/* {detailsTvSeries.status == "Ended" ?
+              <span className="status-serie" style={{backgroundColor: "red"}}>Finished</span> : <span className="status-serie" style={{backgroundColor: "green"}}>In Progress</span>}             */}
+            </div>
+          </div>
           <div className="production-companies">
             <h3>Production Companies</h3>
             <div className="companies">

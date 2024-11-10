@@ -106,6 +106,20 @@ export const Info = styled.div`
     font-size: 1.2rem;
   }
 
+  .info-series {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-around;
+    margin-top: 3rem
+  }
+
+  .status-serie {
+    color: white;
+    border-radius: 0.3rem;
+    padding: 5px;
+  }
+
   .production-companies {
     display: flex;
     flex-direction: column;
