@@ -39,7 +39,7 @@ const InfoTVSeries = () => {
   }, [id, selectLang]);
 
   return (
-    <div>
+    < >
       <Navbar />
       <MovieImages
         backgroundimage={`https://image.tmdb.org/t/p/w500/${detailsTvSeries.backdrop_path}`}
@@ -93,7 +93,7 @@ const InfoTVSeries = () => {
         </div>
       </Info>
       <Footer />
-    </div>
+    </>
   );
 };
 

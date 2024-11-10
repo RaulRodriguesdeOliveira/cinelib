@@ -1,22 +1,27 @@
 import cineLibLogo from "../../assets/Logos/cinelib-logo-white.png";
 import { Link } from "react-router-dom";
 import { NavContainer } from "./style";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { ApplicationState } from "../../store";
 import { GLOBAL } from "../../store/modules/Global/types";
 import { setSearchTitleData, setSelectLangData } from "../../store/modules/Global/action";
 import { useEffect, useState } from "react";
 
 const Navbar = () => {
+  const dispatch = useDispatch();
   const { languages, selectLang, search, filteredContents } = useSelector<ApplicationState, GLOBAL>(
     (state) => state.global
   );
+
+  useEffect(() => {
+    setSearchTerm(search);
+  },[search])
 
   const handleLanguageChange = (
     event: React.ChangeEvent<HTMLSelectElement>
   ) => {
     const selectedLanguage = event.target.value;
-    setSelectLangData(selectedLanguage);
+    dispatch(setSelectLangData(selectedLanguage));
   };
 
   const [isSearchListVisible, setIsSearchListVisible] = useState(false);
@@ -25,11 +30,11 @@ const Navbar = () => {
 
   useEffect(() => {
     const debounceTimer = setTimeout(() => {
-      setSearchTitleData(searchTerm);
+      dispatch(setSearchTitleData(searchTerm));
     }, 300)
 
     return () => clearTimeout(debounceTimer);
-  }, [searchTerm, setSearchTitleData])
+  }, [searchTerm, dispatch])
   
   const handleSearchDataChange = (
     event: React.ChangeEvent<HTMLInputElement>

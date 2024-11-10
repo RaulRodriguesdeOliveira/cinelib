@@ -55,23 +55,19 @@ const Movies = () => {
     setPage(Number(event.target.value));
     event.target.value = "";
   };
-  //"https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc&api_key=d24c8fa294078dc6f582d21f50f4a1a6"
-
   async function getMovies() {
     axios
       .get(
         `https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=${selectLang}&page=${page}&sort_by=popularity.desc&api_key=d24c8fa294078dc6f582d21f50f4a1a6`
-        // "https://api.themoviedb.org/3/discover/movie?language=pt-BR&api_key=d24c8fa294078dc6f582d21f50f4a1a6"
       )
       .then((response) => {
         const moviesData = [];
         for (const key in response.data.results) {
           moviesData.push(response.data.results[key]);
         }
-        // console.log(moviesData);
+       console.log(moviesData);
 
         setMoviesData(moviesData);
-        // console.log(response);
       });
   }
 
