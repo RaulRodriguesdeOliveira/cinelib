@@ -4,16 +4,20 @@ interface DetailsProps {
   backgroundimage: string;
 }
 
-
 export const MovieImages = styled.div<DetailsProps>`
   position: relative;
-  width: 98.75vw;
+  width: 100vw;
   height: 70vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   top: 15vh;
   z-index: 1;
+  
+  @media (max-width: 520px) {
+    top: 10rem;
+    height: 70vh;
+  }
 
   &::before {
     content: "";
@@ -33,7 +37,7 @@ export const MovieImages = styled.div<DetailsProps>`
   .blur-background {
     backdrop-filter: blur(5px);
     height: 70vh;
-    width: 98.75vw;
+    width: 100vw;
     position: relative;
     z-index: 1;
     border-radius: 10px;
@@ -51,12 +55,17 @@ export const MovieImages = styled.div<DetailsProps>`
     @media (max-width: 821px) {
       margin-top: 20vh;
     }
+
+    @media (max-width: 520px) {
+      margin-top: 28vh;
+      width: 15rem;
+    }
   }
 `;
 
 
 export const Info = styled.div`
-width: 98.75vw;
+width: 100vw;
   justify-content: center;
   display: flex;
   align-items: center;
@@ -69,7 +78,7 @@ width: 98.75vw;
     rgba(31, 5, 5, 1) 100%
   );
   @media(max-width: 520px) {
-    
+    margin-top: 4rem;
   }
 
   .movie-title {
@@ -94,7 +103,7 @@ width: 98.75vw;
     flex-direction: column;
     align-items: center;
     margin-top: 4rem;
-    max-width: 80vw;
+    padding: 25px;
     text-align: center;
   }
 
@@ -148,6 +157,15 @@ width: 98.75vw;
     flex-direction: column;
     align-items: center;
     gap: 3rem;
+
+  }
+
+  .trailer-video {
+    border-radius: 15px;
+
+    @media (max-width: 520px){
+      width: 400px;
+    }
   }
 
   .homepage {
@@ -162,6 +180,7 @@ width: 98.75vw;
       color: white;
       margin-top: 1rem;
       text-decoration: none;
+      text-align: center;
       margin-bottom: 5rem;
       transition: 0.3s;
 

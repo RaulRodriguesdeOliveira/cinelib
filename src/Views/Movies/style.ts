@@ -1,7 +1,11 @@
 import styled from "styled-components";
 
-export const PageBody = styled.body`
+export const PageBody = styled.div`
   .body-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
     background: rgb(139, 139, 134);
     background: radial-gradient(
       circle,
@@ -10,7 +14,7 @@ export const PageBody = styled.body`
       rgba(31, 5, 5, 1) 100%
     );
     /* margin-left: 2rem; */
-    width: 98.75vw;  
+    width: 100vw;  
     /* padding-left: 5rem;
     padding-right: 5rem; */
     margin-top: 7rem;

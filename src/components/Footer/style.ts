@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const FooterPage = styled.div`
-    width: 98.75vw;
+    width: 100vw;
     background-color: black;
     display: flex;
     flex-direction: row;
@@ -17,12 +17,7 @@ export const FooterPage = styled.div`
 
     .Logo-CineLib {
         width: 25rem;
-        margin: 5rem;
-
-        @media(max-width: 1000px) {
-            margin-left: 0;
-            margin-right: 0;
-        }
+        margin: 5rem 0;
 
         @media(max-width: 520px) {
             width: 15rem;

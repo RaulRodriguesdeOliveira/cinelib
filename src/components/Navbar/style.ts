@@ -14,9 +14,10 @@ export const NavContainer = styled.div`
   z-index: 1000;
 
   @media (max-width: 520px) {
+    display: flex;
     flex-direction: column;
     align-items: center;
-    height: 18rem;
+    height: 20rem;
   }
 
   .cinelib-logo {

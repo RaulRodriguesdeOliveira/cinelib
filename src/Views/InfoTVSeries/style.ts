@@ -6,16 +6,17 @@ interface DetailsProps {
 
 export const MovieImages = styled.div<DetailsProps>`
   position: relative;
-  width: 98.75vw;
+  width: 100vw;
   height: 70vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   top: 15vh;
   z-index: 1;
-
+  
   @media (max-width: 520px) {
-    top: 18rem;
+    top: 10rem;
+    height: 70vh;
   }
 
 
@@ -30,14 +31,13 @@ export const MovieImages = styled.div<DetailsProps>`
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    /* filter: blur(5px); */
     z-index: 0;
   }
 
   .blur-background {
     backdrop-filter: blur(5px);
     height: 70vh;
-    width: 98.75vw;
+    width: 100vw;
     position: relative;
     z-index: 1;
     border-radius: 10px;
@@ -55,11 +55,16 @@ export const MovieImages = styled.div<DetailsProps>`
     @media (max-width: 821px) {
         margin-top: 32vh;
     }
+
+    @media (max-width: 520px) {
+      margin-top: 28vh;
+      width: 15rem;
+    }
   }
 `;
 
 export const Info = styled.div`
-  width: 98.75vw;
+  width: 100vw;
   justify-content: center;
   display: flex;
   align-items: center;
@@ -71,8 +76,8 @@ export const Info = styled.div`
     rgba(12, 12, 12, 1) 0%,
     rgba(31, 5, 5, 1) 100%
   );
-  @media (max-width: 520px) {
-    margin-top: 18rem;
+  @media(max-width: 520px) {
+    margin-top: 4rem;
   }
 
   .tv-title {
@@ -96,8 +101,9 @@ export const Info = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     margin-top: 4rem;
-    max-width: 80vw;
+    padding: 0 25px;
     text-align: center;
   }
 
@@ -171,6 +177,7 @@ export const Info = styled.div`
       color: white;
       margin-top: 1rem;
       text-decoration: none;
+      text-align: center;
       margin-bottom: 5rem;
       transition: 0.3s;
 

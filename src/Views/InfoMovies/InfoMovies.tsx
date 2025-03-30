@@ -109,7 +109,7 @@ const InfoMovies = () => {
               if (videoData.type === "Trailer") {
                 return (
                   <div key={videoData.id}>
-                    <iframe
+                    <iframe className="trailer-video"
                       width="640"
                       height="360"
                       src={`https://www.youtube.com/embed/${videoData.key}`}
