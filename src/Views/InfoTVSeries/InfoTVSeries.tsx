@@ -1,5 +1,6 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import axios from "axios";
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { setDetailsTvSeries } from "../../store/modules/InfoTVSeries/action";
 import { useSelector } from "react-redux";
 import { ApplicationState } from "../../store";
@@ -91,8 +92,6 @@ const InfoTVSeries = () => {
             <div className="status">
               <h3>Status</h3>
                 <span className="status-serie" style={{backgroundColor: statusColorMap[detailsTvSeries.status] || "gray"}}>{statusSerieMap[detailsTvSeries.status]}</span>
-              {/* {detailsTvSeries.status == "Ended" ?
-              <span className="status-serie" style={{backgroundColor: "red"}}>Finished</span> : <span className="status-serie" style={{backgroundColor: "green"}}>In Progress</span>}             */}
             </div>
           </div>
           <div className="production-companies">

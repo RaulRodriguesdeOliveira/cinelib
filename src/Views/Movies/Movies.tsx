@@ -11,7 +11,6 @@ import { PageBody, PageControls } from "./style";
 import Navbar from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer/Footer";
 import { GLOBAL } from "../../store/modules/Global/types";
-// import { setMoviesData } from "../store/modules/Movies/action";
 
 const Movies = () => {
   const { movies: moviesState } = useSelector<ApplicationState, MOVIES>(
@@ -23,22 +22,6 @@ const Movies = () => {
   );
 
   const [page, setPage] = React.useState(1);
-
-  // const MoviesTitles: { titles: string[]; id: number[] } = {
-  //   titles: [],
-  //   id: [],
-  // };
-  // movies.map(
-  //   (movie) => (
-  //     MoviesTitles.titles.push(movie.title), MoviesTitles.id.push(movie.id)
-  //   )
-  // );
-
-  // console.log(MoviesTitles);
-
-  // const titlesFiltered = MoviesTitles.titles.filter((title) =>
-  //   title.toLowerCase().includes(search.toLowerCase())
-  // );
 
   function handlePage(event: React.MouseEvent<HTMLButtonElement>) {
     const value = event.currentTarget.value;

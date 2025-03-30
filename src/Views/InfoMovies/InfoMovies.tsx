@@ -36,8 +36,6 @@ const InfoMovies = () => {
         setDetailsMovie(response.data);
       });
   }, [selectLang, id]);
-  // console.log(detailsMovie);
-
   useEffect(() => {
     if (id) {
       axios
@@ -116,7 +114,6 @@ const InfoMovies = () => {
                       height="360"
                       src={`https://www.youtube.com/embed/${videoData.key}`}
                       title={videoData.name}
-                      frameBorder="0"
                       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                       referrerPolicy="strict-origin-when-cross-origin"
                       allowFullScreen
