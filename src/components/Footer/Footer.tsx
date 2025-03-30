@@ -1,4 +1,3 @@
-import React from "react";
 import LogoCinelibLg from "../../assets/Logos/cinelib-logo-large.png";
 import LogoGitHub from "../../assets/github-logo.png";
 import LogoLinkedIn from "../../assets/linkedin-logo.png";
